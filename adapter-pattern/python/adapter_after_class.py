@@ -1,23 +1,45 @@
+"""
+Adapter class with class based implementation
+"""
 import json
-from bs4 import BeautifulSoup
 from abc import ABC, abstractmethod
+from bs4 import BeautifulSoup
+
 
 class DataProviderInterface(ABC):
+    """
+    DataProvider Interface
+    Methods:
+        collect_data: to collect the data
+        get_value: to get the value from data
+    """
 
     def __init__(self):
         self.data = None
 
     @abstractmethod
     def collect_data(self):
+        """
+        Method to collect the data
+        """
         pass
 
     @abstractmethod
     def get_value(self, key):
+        """
+        Method to get value from data
+        """
         pass
 
-class XMLDataProvider(DataProviderInterface):
 
+class XMLDataProvider(DataProviderInterface):
+    """
+    DataProvider: XML Data Provider
+    """
     def __init__(self):
+        """
+        Initialization of the attr.
+        """
         self.data = None
 
     def collect_data(self):
