@@ -45,6 +45,7 @@ class XMLDataProvider(DataProviderInterface):
     def collect_data(self):
         with open("data.xml", encoding="utf-8") as file:
             data = file.read()
+        print("test")
         bs_xml = BeautifulSoup(data, "xml")
         self.data = bs_xml
     
