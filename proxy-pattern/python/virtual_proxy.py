@@ -1,14 +1,17 @@
 from abc import ABC, abstractmethod
 
-class RealObjectService:
 
+# Interface -> Structure.
+class RealObjectService:
     @abstractmethod
-    def perform_action(self):
+    def perform_action(self):  # Blueprint or Enforcement
         pass
 
+
 class RealObject(RealObjectService):
-    def perform_action(self):
+    def perform_action(self):  # Implementation
         print("RealObject performing action")
+
 
 class Proxy(RealObjectService):
     def __init__(self):
@@ -19,6 +22,7 @@ class Proxy(RealObjectService):
         if self._real_object is None:
             self._real_object = RealObject()
         self._real_object.perform_action()
+
 
 # Client code
 proxy = Proxy()

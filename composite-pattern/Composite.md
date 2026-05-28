@@ -256,6 +256,17 @@ class Directory(FileSystemComponent):
         self.children.append(component)
 
     def size(self):
+        # Component
+        class FileSystemComponent(ABC):
+            @abstractmethod
+            def size(self):
+                pass
+        
+        # Leaf
+        class File(FileSystemComponent):
+            def __init__(self, size):
+                self.size_value = size
+
         total_size = sum(child.size() for child in self.children)
         return total_size
 

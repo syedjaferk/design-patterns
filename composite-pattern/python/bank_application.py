@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 # Component
 class AccountComponent(ABC):
     @abstractmethod
@@ -9,6 +10,7 @@ class AccountComponent(ABC):
     @abstractmethod
     def get_statement(self):
         pass
+
 
 # Leaf
 class BankAccount(AccountComponent):
@@ -22,6 +24,7 @@ class BankAccount(AccountComponent):
 
     def get_statement(self):
         return f"Account {self.account_number} Statement:\n{self.statement}"
+
 
 # Composite
 class CustomerAccount(AccountComponent):
@@ -42,6 +45,7 @@ class CustomerAccount(AccountComponent):
             consolidated_statement += account.get_statement() + "\n"
         return consolidated_statement
 
+
 # Usage
 if __name__ == "__main__":
     account1 = BankAccount("123456", 5000, "Transaction 1: +$100\nTransaction 2: -$50")
@@ -50,6 +54,8 @@ if __name__ == "__main__":
     customer = CustomerAccount("John Doe")
     customer.add_account(account1)
     customer.add_account(account2)
+
+    print("Account 1 balance ", account1.get_balance())
 
     # Generate Customer’s total account balance
     total_balance = customer.get_balance()
