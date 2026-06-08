@@ -42,4 +42,4 @@ while True:
     if counter % 50 == 0:
         print(f"Trees: {counter}")
 
-    time.sleep(1)
+    time.sleep(0.1)
